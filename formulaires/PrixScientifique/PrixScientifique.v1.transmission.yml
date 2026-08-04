@@ -11,7 +11,7 @@ gabaritsCourriels:
  - id: confirmation
    a:
      tous:
-      - "analyse_affaires_daia@economie.gouv.qc.ca"
+      - "clientis@economie.gouv.qc.ca"
    nomExpediteur: "FRW Prix scientifique"
    objet: "Nouvelle soumission Prix scientifique"
    corps: |
