@@ -1,26 +1,24 @@
 etapes:
-- tache: genererWord
-  options:
-    fichierBind: PrixScientifique.bind.yml
-- tache: ajouterEstampille
-- tache: traiterDocumentsSoumis
-- tache: envoyerCourriel
-  options:
-    gabarit: confirmation
+    - tache: envoyerCourriel
+      options:
+           # Le gabarit spécifié doit être défini dans la section "gabaritsCourriels"
+           gabarit: données
+           modeBoutonTesterTransmission: simuler
+ 
+# Liste des gabarits de courriel pour la tâche "envoyerCourriel"
 gabaritsCourriels:
- - id: confirmation
-   a:
-     tous:
-      - "clientis@economie.gouv.qc.ca"
-   nomExpediteur: "FRW Prix scientifique"
-   objet: "Nouvelle soumission Prix scientifique"
-   corps: |
-    <p>Bonjour,</p>
-    <p>Une nouvelle soumission a été reçue pour le Prix scientifique</p>
-    <p>Numéro de référence : {{NoConfirmation}}</p>
-    <p>Voire les pièces jointes</p>
-    <ul>
-          {{#listePJ}}
-        <li><a href="{{url}}">{{nomOriginal}}</a></li>
-          {{/listePJ}}
-        </ul>
+  - id: confirmation
+    # Liste des destinataires (peut être une liste)
+    a:
+      tous:
+        - "clientis@economie.gouv.qc.ca"
+    # Nom de l'expéditeur (Par défaut, "Formulaires en ligne" ou "Online forms" selon la langue)
+    nomExpediteur: "FRW Prix scientifique"
+    # Permet de spécifier l'adresse de retour
+    retourA: '{{envoyerCourriel.partiesVariables.partie3}}'
+    # L'objet du courriel peut contenir des parties variables
+    objet: '{{envoyerCourriel.partiesVariables.partie1}}Questionnaire: {{donneesFormulaire.form.MO}}{{envoyerCourriel.partiesVariables.partie2}}'
+    # Les données du formulaires peuvent être réutilisées dans le contenu du courriel.
+    # Les données retournées par Moneris lors d'un paiement sont également accessibles.
+    corps: |
+      <pre>{{donneesFormulaire.form}}</pre>
