@@ -2,7 +2,7 @@ etapes:
     - tache: envoyerCourriel
       options:
            # Le gabarit spécifié doit être défini dans la section "gabaritsCourriels"
-           gabarit: données
+           gabarit: confirmation
            modeBoutonTesterTransmission: simuler
  
 # Liste des gabarits de courriel pour la tâche "envoyerCourriel"
