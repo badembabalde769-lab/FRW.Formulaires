@@ -1,0 +1,1041 @@
+
+config:  
+  revision:
+    # Indique si la validation du formulaire est exécutée dès que la page révision est accédée, évitant ainsi à l'utilisateur de cliquer sur le bouton 'Valider'. Utile lorsqu'aucune consigne particulière ne doit être affichée avant la validation.
+    validationAutomatique: true
+  soumission: 
+    texteBoutonSoumettre:
+      fr: Soumettre la demande
+  formulaireUnilingue: true
+  securite:
+    accesAnonyme: true
+form:
+  title:
+    fr: Fiche de suivi des résultats - Programme NovaScience
+  sectionsGroup:
+  - sections:
+      - section:
+          fr: Identification de l'entreprise
+        id: identificationEntreprise
+          
+        components:
+            - type: information
+              name: consignesFormulaire
+              label:
+                fr: À compléter par l'entreprise à la fin du projet soutenu dans le programme NovaScience. À retourner au  Ministère
+                    au moment de la réclamation du dernier versement de l'aide financière.
+
+            - type: group
+              name: renseignementsEntreprise
+              
+              label:
+                fr: Renseignements sur l'entreprise              
+            
+              components:
+              - type: text
+                name: nomEntreprise               
+                label:
+                 fr: Nom de l'entreprise
+              
+
+              - type: text
+                name: municipaliteEntreprise               
+                label:
+                  fr: Municipalité
+
+              - type: text
+                name: neqEntreprise
+                label:
+                  fr: NEQ
+
+              - type: text
+                name: codeScian
+                label: 
+                  fr: SCIAN
+                help:
+                  fr: Précisez le code SCIAN à 3 ou 4 chiffres. Au besoin, consultez les Codes SCIAN - Secteurs industriels.
+              
+              - type: date
+                name: dateDebutProjet
+                label: 
+                  fr: Date de début du projet
+
+      - section:
+         fr: L'atteinte de vos objectifs
+        id: atteinteObjectifs          
+        components:
+          - type: group 
+            name: evaluationAtteinteObjectifs
+            label: 
+              fr: Atteinte des objectifs fixés
+            components:
+              
+              - type: radio
+                name: objectifsAtteints
+                label:
+                  fr: Avez-vous atteint les objectifs que vous vous étiez fixés en débutant le projet?                
+                options:
+                  option1: Oui
+                  option2: Non
+                  option3: En partie
+
+              - type: textarea
+                name: explicationObjectifsAtteints                
+                label:
+                  fr: Expliquer au besoin
+                validations:      
+                  optional: null
+
+          - type: group
+            name: evaluationEffetAideFinanciere
+            label:
+              fr: Réalisation du projet sans l'aide financière
+        
+            components:
+            - type: radio
+              name: realisationSansAide
+              label: 
+                fr: En l'absence de l'aide financière obtenue par le programme NovaScience, auriez-vous réaliser le projet
+                    pour lequel vous avez été soutenu?
+              options:
+                option1: Non, pas du tout
+                option2: Oui, mais en partie
+                option3: Oui, la totalité du projet
+            - type: textarea
+              name: explicationRealisationSansAide
+              label:
+                fr: Expliquer au besoin
+              validations:      
+                optional: null
+              
+
+
+             # - type: text
+             #   name: centreRecherchePersonnePropose
+              #  label: 
+               #   fr: Centre de recherche ou entreprise
+
+              #- type: adresse
+              #  name: adressePersonnePropose
+              #  label: 
+              #    fr: adresse
+
+              # - type: text
+              #   name: adressCentreEntrepriseProposant              
+              #   label:
+              #     fr: Adresse
+              #   help:
+              #     fr: Université, département, faculté, pavillon
+
+             # - type: text
+              #  name: municipaliteProposant              
+              #  label:
+              #    fr: Municipalité
+               # help:
+               #   fr: Municipalité, Province, Code postal
+
+              #- type: tel
+              #  name: telephoneProposant
+              #  label:
+              #   fr: Téléphone
+
+             # - type: email
+             #   name: courrielProposant
+              #  label: 
+              #    fr: Adresse courriel
+
+
+          
+      - section:
+          fr: Quel est l'investissement dans le projet?
+        id: investissementProjet
+          
+        components:
+          - type: group 
+            name: coutTotalAutorise
+            label: 
+              fr: Coût total duprojet
+           
+            components:
+              
+              - type: number
+                name: coutTatalProjetLigne1
+                label:
+                  fr: Ligne 1 - Coût total du projet
+                help:
+                  fr: Indiquez le coût total final autorisé dans le programme NovaScience, en dollars canadiens.
+
+          - type: group
+            name: ventilationCoutTotal
+            label:
+              fr: Ventilation du coût total du projet
+
+            components:
+              - type: number
+                name: investissementEntreprise
+                label:
+                  fr: A. Investissement provenant de l'entreprise
+                help:
+                  fr: Montant en dollars canadiens.
+
+              - type: number
+                name: autresInvestissementsPrives
+                label:
+                  fr: B. Autres investissements provenant de sources privées
+                help:
+                  fr: Par exemple, banques, fonds ou autres. Montant en dollars canadiens.
+
+              - type: number
+                name: aideFinaniereNovaScience
+                label:
+                  fr: C. Aide financière accordée dans le programme NovaScience
+                help:
+                  fr: Indiquez le montant de la subvention en dollars canadiens.
+
+              - type: number
+                name: autresAidesFinancieresPubliques
+                label:
+                  fr: D. Autres aides financières de sources publiques
+                help:
+                  fr: Indiquez le montant des subventions en dollars canadiens.
+
+              - type: number
+                name: coutTotalProjetLigne2
+                label:
+                  fr: Ligne 2 - Coût total du projet (A + B + C + D)
+                help:
+                  fr: Ce montant doit être égal au coût total du projet indiqué à la ligne 1.
+
+          - type: group
+            name: complementInvestissement
+            label:
+              fr: En complément
+
+            components:
+              - type: number
+                name: apportsEnNatureEntreprise
+                label:
+                  fr: Apports en nature de l'entreprise dans le projet
+                help:
+                  fr: À compléter si pertinent. Montant en dollars
+                validations:      
+                  optional: null
+              
+        
+      - section:
+         fr: Quels sont les résultats du projet?
+        id: resultasProjet        
+        components:
+          - type: group 
+            name: natureProjet
+            label: 
+              fr: Nature du projet
+            components:
+              
+              - type: radio
+                name: natureDuProjet
+                label:
+                  fr: Votre projet est-il?                 
+                options:
+                  nouveau: Nouveau
+                  recurrent: Récurrent
+                  autre: Autre
+
+              - type: text
+                name: autreNatureProjet                
+                label:
+                  fr: Précisez
+                v-if: val('natureDuProjet') === 'autre'
+
+              - type: textarea
+                name: explicationNatureProjet
+                label:
+                  fr: Expliquer au besoin
+                validations:      
+                  optional: null
+                
+
+          - type: group 
+            name: typeProjet
+            label: 
+              fr: Type de projet
+
+            components: 
+              - type: checkbox
+                name: typesDuProjet
+                label:
+                  fr: Quel est le type de projet?              
+                options:
+                  strategique:
+                    fr: Stratégique
+                  thematique:
+                    fr: Thématique
+                  structurant:
+                    fr: Structurant
+                  soutienEmploi:
+                    fr: Soutien à l'emploi
+                  autre:
+                    fr: Autre
+              - type: text
+                name: autreTypeProjet
+                label:
+                  fr: Précisez si vous avez sélectionné << Autre >>
+                validations:      
+                  optional: null
+
+              - type: textarea
+                name: explicationTypeProjet
+                label:
+                  fr: Expliquer au besoin
+                validations:      
+                  optional: null
+            
+          - type: group 
+            name: activitesDeveloppementTalents
+            label: 
+              fr: Activités de développement des talents, des compétences et de la relève
+
+            components: 
+              - type: radio
+                name: activitesTalentsRealisees
+                label:
+                  fr: Le projet a-t-il permis la réalisation d'activités de développement de talents, de compétences et de la relève?              
+                options:
+                  oui:
+                    fr: Oui
+                  non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A
+                  
+              - type: number
+                name: nombreActivitesProjet
+                label:
+                  fr: Activités réalisées dans le projet
+                help:
+                  fr: Indiquez le nombre d'activités.
+                v-if: val('activitesTalentsRealisees') === 'oui'
+              - type: textarea
+                name: explicationActivitesProjet
+                label:
+                  fr: Expliquer au besoin
+                validations:      
+                  optional: null
+
+          - type: group 
+            name: participationPopulation
+            label: 
+              fr: Participation de la population
+
+            components: 
+              - type: radio
+                name: participationPopulationPermise
+                label:
+                  fr: Le projet a-t-il permis la participation de la population à des 
+                      activités de développant les talents, les compétences et la relève?              
+                options:
+                  oui:
+                    fr: Oui
+                  non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A 
+
+              - type: checkbox
+                name: publicsActivites
+                label:
+                  fr: À qui ces activités s'adressaient-elles directement ou indirectement?
+                v-if: val('participationPopulationPermise') === 'oui'
+                options:
+                  grandPublic:
+                    fr: Grand
+                  entreprises:
+                    fr: Entreprises
+                  personnelEducation:
+                    fr: Personnel éducateur, enseignant ou corps professoral
+                  eleve:
+                    fr: Relève (jeunes enfants, élèves, étudiants ou talents)
+                  autres:
+                    fr: Autres
+
+              - type: text
+                name: autrePublicActivites
+                label:
+                  fr: Autres - Précisez
+                v-if: val('reconnaissancePermise') === 'oui'
+
+              - type: number
+                name: nombrePrixRemis
+                label:
+                  fr: Prix remis dans le cadre du projet
+                help:
+                  fr: Indiquez le nombre de prix remis.
+                v-if: val('reconnaissancePermise') === 'oui'
+
+              - type: number
+                name: nombreConsultationsPagesWeb
+                label:
+                  fr: Consultations des pages Web du projet
+                help:
+                  fr: Indiquez le nombre de consultations.
+                v-if: val('participationPopulationPermise') === 'oui'
+
+          - type: group 
+            name: reconnaissancePersonnes
+            label: 
+              fr: Reconnaissance et valorisation de personnes remarquables
+
+            components: 
+              - type: radio
+                name: reconnaissancePermise
+                label:
+                  fr: Le projet a-t-il permis la reconnaissance et la valorisation de personnes remarquables en recherche et en innovation?             
+                options:
+                  oui:
+                    fr: Oui
+                  non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A
+
+              - type: checkbox
+                name: publicsReconnaissance
+                label:
+                  fr: À qui les activités de reconnaissance et valorisation s'adressaient-elles?
+                v-if: val('reconnaissancePermise') === 'oui'
+                options:
+                  grandPublic:
+                    fr: Grand public
+                  entreprises:
+                    fr: Entreprises
+                  personnelEducation:
+                    fr: Personnel éducateur, enseignant ou corps professoral
+                  releve:
+                    fr: Relève (jeunes enfants, élèves, étudiants ou talent)
+                  autres:
+                    fr: Autres
+                
+              - type: text
+                name: autrePublicReconnaissance
+                label:
+                  fr: Autres- Précisez
+                v-if: val('reconnaissancePermise') === 'oui'
+
+          - type: group 
+            name: partenairesProjet
+            label: 
+              fr: Partenaires du projet
+
+            components: 
+              - type: radio
+                name: collaborationPartenaires
+                label:
+                  fr: Avez-vous travaillé avec des partenaires dans le cadre de votre projet?          
+                options:
+                  oui:
+                    fr: Oui
+                  non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A   
+
+              - type: checkbox
+                name: typesPartenaires
+                label:
+                  fr: Avec quels types de partenaires avez-vous travaillé?
+                v-if: val('collaborationPartenaires') === 'oui'
+                options:
+                  ministeresOrganismes:
+                    fr: Ministères et organismes gouvernementaux
+                  entreprisesLucrative:
+                    fr: Entreprises à but lucratif
+                  entreprisesNonLucratives:
+                    fr: Entreprises à but non lucratif
+                  autres:
+                    fr: Autres 
+              
+              - type: text
+                name: autreTypePartenaire
+                label:
+                  fr: Autres - Précisez
+                v-if: val('collaborationPartenaires') === 'oui'
+
+              - type: textarea
+                name: objetCollaboration
+                label:
+                  fr: Objet de la collaboration
+          
+                v-if: val('collaborationPartenaires') === 'oui'
+
+
+          - type: group 
+            name: mainOeurvreQualifiee
+            label: 
+              fr: Développement d'une main-d'oeuvre hautement qualifiée
+
+            components: 
+              - type: radio
+                name: contributionMainOeuvreQualifiee
+                label:
+                  fr: Le projet a-t-il contribué à développer une main-d'oeuvre hautement qualifiée?
+                        
+                options:
+                  oui:
+                    fr: Oui
+                  non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A   
+
+              - type: number
+                name: nombreEmploisCrees
+                label:
+                  fr: Emplois créés
+                help:
+                  fr: Indiquez le nombre d'emplois créés.
+                v-if: val('contributionMainOeuvreQualifiee') === 'oui'
+
+              - type: number
+                name: nombreEmploisSauvegardes
+                label:
+                  fr: Emplois sauvegardés
+                help:
+                  fr: Indiquez le nombre d'emplois sauvegardés.
+                v-if: val('contributionMainOeuvreQualifiee') === 'oui'
+
+
+          - type: group 
+            name: autreResultatsEntreprise
+            label: 
+              fr: Autres résultats pour l'entreprise
+
+            components: 
+              - type: radio
+                name: autresResultasObtenus
+                label:
+                  fr: Le projet a-t-il donné lieu à d'autres résultats pour votre entreprise?        
+                options:
+                  oui:
+                    fr: Oui
+                  non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A  
+
+              - type: textarea
+                name: descriptionAutresResultats
+                label:
+                  fr: Si oui, lesquels?
+                v-if: val('autresResultatsObtenus') === 'oui'
+
+          - type: group
+            name: retombeesQuebec
+            label:
+              fr: Retombées potentielles pour le Québec
+
+            components:
+              - type: radio
+                name: retombeesPrevuesQuebec
+                label:
+                  fr: D'autres retombées potentielles du projet sont-elles prévues pour le Québec?
+                options:
+                  oui:
+                    fr: Oui
+                  non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A  
+              
+              - type: textarea
+                name: descriptionAutresResultats
+                label:
+                  fr: Si oui, lesquels?
+                v-if: val('autresResultatsObtenus') === 'oui'
+
+
+
+      - section:
+          fr: Quelle était la situation de votre entreprise au début du projet
+              et à la fin du projet?
+        id: situationEntreprise
+          
+        components:
+          - type: information 
+            name: informationSituationEntreprise
+            label: 
+              fr: Cette section est facultative et doit être remplie si elle est pertinente.
+                  Indiquez les résultats annuels, par exemple le chiffre d'affaires de l'année précédant
+                  le début du projet et celui de l'année de fin du projet.
+
+          - type: group
+            name: situationDebutProjet
+            label:
+              fr: Au début du projet
+
+            components:
+              - type: date
+                name: dateDebutSituation
+                label:
+                  fr: Date de l'étape du projet
+
+              - type: number
+                name: chiffreAffairesDebut
+                label:
+                  fr: Chiffre d'affaire
+                help:
+                  fr: Montant en dollars canadiens.
+                
+              - type: number
+                name: employesTempsPleinDebut
+                label:
+                  fr: Nombre d'employés à temps plein
+                help:
+                  fr: Équivalent à temps plein, soit 30 heures et plus par semaine ou 1560 heures et plus par années.
+              
+              - type: number
+                name: baiiaDebut
+                label:
+                  fr: BAIIA
+                help:
+                  fr: Bénéfices avant impôts, intérêts et amortissement, en dollars canadiens.
+                
+              - type: number
+                name: salairesAvantagesDebut
+                label:
+                  fr: Salaires et avantages sociaux
+                help:
+                  fr: Montant en dollars canadiens.
+                
+              - type: number
+                name: valeurAjouteeDebut
+                label:
+                  fr: Valeur ajoutée
+                help:
+                  fr: Montant en dollars canadiens. La valeur ajoutée correspond au BAIIA additionné aux salaires et aux avantages sociaux.
+
+              - type: number
+                name: heuresTravailleesDebut
+                label:
+                  fr: Nombre d'heures travaillées sur l'année
+                help:
+                  fr: Indiquez le nombre d'heures de travail prévues par l'entreprise.
+
+          - type: group
+            name: situationFinProjet
+            label:
+              fr: À la fin du projet
+
+            components:
+              - type: date
+                name: dateFinSituation
+                label:
+                  fr: Date de l'étape du projet
+
+              - type: number
+                name: chiffreAffairesFin
+                label:
+                  fr: Chiffre d'affaire
+                help:
+                  fr: Montant en dollars canadiens.
+                
+              - type: number
+                name: employesTempsPleinFin
+                label:
+                  fr: Nombre d'employés à temps plein
+                help:
+                  fr: Équivalent à temps plein, soit 30 heures et plus par semaine ou 1560 heures et plus par années.
+
+              - type: number
+                name: baiiaFin
+                label:
+                  fr: BAIIA
+                help:
+                  fr: Bénéfices avant impôts, intérêts et amortissement, en dollars canadiens.
+                
+              - type: number
+                name: salairesAvantagesFin
+                label:
+                  fr: Salaires et avantages sociaux
+                help:
+                  fr: Montant en dollars canadiens.
+                
+              - type: number
+                name: valeurAjouteeFin
+                label:
+                  fr: Valeur ajoutée
+                help:
+                  fr: Montant en dollars canadiens. La valeur ajoutée correspond au BAIIA additionné aux salaires et aux avantages sociaux.
+
+              - type: number
+                name: heuresTravailleesFin
+                label:
+                  fr: Nombre d'heures travaillées sur l'année
+                help:
+                  fr: Indiquez le nombre d'heures de travail prévues par l'entreprise.
+
+
+      - section:
+          fr: Quelles sont les perspectives de développement de l'entreprise soutenue dans les trois prochaines années?
+        id: perspectivesDeveloppement
+          
+        components:
+          - type: information 
+            name: informationPerxpectivesDeveloppement
+            label: 
+              fr: À compléter uniquement à la fin du projet.
+
+          - type: group
+            name: estimationsCroissance
+            label:
+              fr: Estimations pour les trois prochaines années
+
+            components:
+              - type: number
+                name: tauxCroissanceChiffreAffaires
+                label:
+                  fr: Estimation du taux de croissance annuelle moyen du chiffre d'affaires
+                help:
+                  fr: Indiquez le pourcentage estimé pour les trois prochaines années.
+
+              - type: number
+                name: tauxCroissanceNombreEmployes
+                label:
+                  fr: Estimation du taux de croissance annuelle moyen du nombre d'employés
+                help:
+                  fr: Indiquez le pourcentage estimé pour les trois prochaines années.
+
+
+          - type: group
+            name: investissementsCommercialisation
+            label:
+              fr: Investissements prévus en commercialisation
+
+            components:
+              - type: radio
+                name: nouveauxInvestissementsPrevus
+                label:
+                  fr: D'ici trois ans, prévoyez-vous de nouveaux investissements en commercialisation de produits et de services?
+                options:
+                  oui:
+                    fr: Oui
+                  Non:
+                    fr: Non
+
+              - type: number
+                name: montantInvestissementsPrevus
+                label:
+                  fr: Montant estimé des nouveaux investissements
+                help:
+                  fr: Indiquez l'estimation totale pour les trois prochaines années, en dollars canadiens.
+                v-if: val('nouveauxInvestissementsPrevus') === 'oui'
+
+              - type: textarea
+                name: commentairesPerspectivesDeveloppement
+                label:
+                  fr: Commentaires
+                help:
+                  fr: Au besoin, précisez les autres perspectives de développement de votre entreprise.
+                validations:      
+                  optional: null
+
+
+      - section:
+          fr: Appréciation du suivi de votre dossier par le Ministere
+        id: appreciationSuiviDossier
+          
+        components:
+          - type: information 
+            name: consigneAppreciationSuivi
+            label: 
+              fr: Quel est votre degré d'accord avec les affirmations suivantes?
+
+          - type: radio
+            name: appreciationProceduresAide
+            label:
+              fr: Les procédures pour obtenir l'aide financière sont simples.
+            options:
+              parfaitementAccord:
+                fr: Parfaitement en accord
+              enAccord:
+                fr: En accord
+              partiellementDesaccord:
+                fr: Partiellement en désaccord
+              completDesaccord:
+                fr: En complet désaccord
+              nonApplicable:
+                fr: Ne s'applique pas
+            
+          - type: radio
+            name: appreciationDelaisVersement
+            label:
+              fr: Les délais de versement des aides financières sont raisonnables.
+            options:
+              parfaitementAccord:
+                fr: Parfaitement en accord
+              enAccord:
+                fr: En accord
+              partiellementDesaccord:
+                fr: partiellement en désaccord
+              completDesaccord:
+                fr: En complet désaccord
+              nonApplicable:
+                fr: Ne s'applique pas
+
+          - type: radio
+            name: appreciationProcessusDeboursement
+            label:
+              fr: Déboursement - Le processus de déboursement est simple.
+            options:
+              parfaitementAccord:
+                fr: Parfaitement en accord
+              enAccord:
+                fr: En accord
+              partiellementDesaccord:
+                fr: partiellement en désaccord
+              completDesaccord:
+                fr: En complet désaccord
+              nonApplicable:
+                fr: Ne s'applique pas
+          
+          - type: radio
+            name: appreciationReponseBesoins
+            label:
+              fr: L'aide financière a répondu à nos besoins.
+            options:
+              parfaitementAccord:
+                fr: Parfaitement en accord
+              enAccord:
+                fr: En accord
+              partiellementDesaccord:
+                fr: partiellement en désaccord
+              completDesaccord:
+                fr: En complet désaccord
+              nonApplicable:
+                fr: Ne s'applique pas
+
+      - section:
+          fr: Satisfaction de l'aide financière reçue
+        id: satisfactionAideFinanciere
+          
+        components:
+          - type: information 
+            name: consigneSatisfactionAide
+            label: 
+              fr: Quel est votre degré de satisfaction à l'égard des éléments suivants?
+
+          - type: radio
+            name: satisfactionProgrammeEnsembe
+            label:
+              fr: Le programme dans son ensemble
+            options:
+              tresSatisfait:
+                fr: Trés satisfait
+              assezSatisfait:
+                fr: Assez satisfait
+              peuSatisfait:
+                fr: Peu satisfait
+              pasDutoutSatisfait:
+                fr: Pas du tout satisfait
+              nonApplicable:
+                fr: Ne s'applique pas
+          
+          - type: radio
+            name: satisfactionAccompagnementMinistere
+            label:
+              fr: L'accompagnement et les conseils reçus du personnel du Ministère
+            options:
+              tresSatisfait:
+                fr: Trés satisfait
+              assezSatisfait:
+                fr: Assez satisfait
+              peuSatisfait:
+                fr: Peu satisfait
+              pasDutoutSatisfait:
+                fr: Pas du tout satisfait
+              nonApplicable:
+                fr: Ne s'applique pas
+            
+          - type: radio
+            name: satisfactionRedditionComptes
+            label:
+              fr: La reddition de compte exigée du programme
+            options:
+              tresSatisfait:
+                fr: Trés satisfait
+              assezSatisfait:
+                fr: Assez satisfait
+              peuSatisfait:
+                fr: Peu satisfait
+              pasDutoutSatisfait:
+                fr: Pas du tout satisfait
+              nonApplicable:
+                fr: Ne s'applique pas
+
+
+
+      - section:
+          fr: Utilité et valeur ajoutée du programme
+        id: utiliteValeurAjouteeProgramme
+          
+        components:
+          - type: group
+            name: utiliteProgramme
+            label: 
+              fr: Utilité du programme
+
+            components:
+              - type: radio
+                name: niveauUtiliteProgramme
+                label:
+                  fr: Selon vous, le programme NovaScience a-t-il été utile, dans le sens qu'il a répondu aux besoins de votre organisme ou de votre entreprise?
+                options:
+                  tresUtile:
+                    fr: Trés utile
+                  assezUtile:
+                    fr: Assez utile
+                  PeuUtile:
+                    fr: Peu Utile
+                  pasDuToutUtile:
+                    fr: Pas du tout utile
+                  neSaitPasNonApplicable:
+                    fr: Ne sait pas/ ne s'applique pas
+          
+
+          - type: group
+            name: valeurAjouteeProgramme
+            label:
+              fr: Valeur ajoutee du programme
+
+            components:
+              - type: radio
+                name: programmeValeurAjoutee
+                label:
+                  fr: Selon vous, est-ce que le programme représente une valeur ajoutée pour le milieu de la recherche et de l'innovation?
+                options:
+                  oui:
+                    fr: Oui
+                  Non:
+                    fr: Non
+                  nonApplicable:
+                    fr: N/A
+
+              - type: textarea
+                name: justificationValeurAjoutee
+                label:
+                  fr: En quelques mots, pourquoi?
+
+      - section:
+          fr: Commentaires
+        id: commentaires
+        
+          
+        components:
+          - type: textarea
+            name: suggestionsAmeliorationProgramme
+            label: 
+              fr: Avez-vous des suggestions et/ou des commentaires pour l'amélioration du programme NovaScience?
+            validations:      
+                  optional: null
+
+            
+
+      - section:
+          fr: Utilisation des renseignements et signature
+        id: utilisationRenseignementsSignature
+          
+        components:
+          - type: information
+            name: protectionRensignements
+            label: 
+              fr: Les renseignements ci-haut indiqués peuvent être régis par la loi sur l'accès aux documents des organismes publics et sur la protection des renseignements personnels.
+            validations:      
+                  optional: null
+
+          - type: information
+            name: consentementEvaluationProgramme
+            label: 
+              fr: L'entreprise, bénéficiaire d'une aide finanière pour le projet ci-haut indiqué, consent à ce que les renseignements confidentiels fournis dans la présente
+                  fiche soient utilisés pour évaluer les résultats du programme. L'information sera utilisée sous une forme anonymisée et accessible uniquement au personnel du Ministère.
+            validations:      
+                  optional: null
+
+          - type: information
+            name: consentementSondage
+            label:
+              fr: L'entreprise, bénéficiaire d'une aide financière pour le projet ci-haut indiqué, consent aussi à figurer dans une liste de répondants pour la réalisation
+                  d'un sondage téléphonique aux fins d'évaluation des résultats du programme NovaScience. L'entreprise pourra accepter ou refuser de répondre au sondage.
+            validations:      
+                  optional: null
+
+          - type: information
+            name: declarationRepresentant
+            label:
+              fr: Le représentant soussigné de l'entreprise déclare qu'il est dûment autorisé à signer la présente fiche.
+            validations:      
+                  optional: null
+                                                                             
+          - type: group
+            name: identificationRepresentant
+            label:
+              fr: Représentant de l'entreprise
+
+            components:
+              - type: text
+                name: nomRepresentant
+                label:
+                  fr: Nom du représentant
+
+              - type: text
+                name: titreRepresentant
+                label:
+                  fr: Titre
+
+              - type: signature
+                name: signatureRepresentant
+                label:
+                  fr: Signature
+
+              - type: date
+                name: dateSignature
+                label:
+                  fr: Date  
+
+
+      - section:
+          fr: Révision
+        id: revision
+
+        cacherTextExplicatifChampsObligatoires: true
+          
+        components:
+          - type: dynamic
+            tag: div
+            v-if: val('EtatRevision') === 'initial'
+            classes: texte-revision
+            text:
+              fr: Cliquez sur le bouton <<  Valider >> afin de vérifier que le formulaire est correctement rempli.
+            
+
+          - type: dynamic
+            tag: div
+            v-if: val('EtatRevision') === 'sans-erreur'
+            classes: text-revision
+            text:
+              fr: Le formulaire à été validé avec succès. Vous pouvez maintenant soumettre la fiche.
+      
+     
+                
+              
+
+      
+
+     
+
+          
+          
+
+
+          
+                
+
+            
