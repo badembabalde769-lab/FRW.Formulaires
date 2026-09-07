@@ -24,6 +24,8 @@ form:
               label:
                 fr: À compléter par l'entreprise à la fin du projet soutenu dans le programme NovaScience. À retourner au  Ministère
                     au moment de la réclamation du dernier versement de l'aide financière.
+              validations:      
+                  optional: nul
 
             - type: group
               name: renseignementsEntreprise
@@ -154,7 +156,7 @@ form:
           - type: group 
             name: coutTotalAutorise
             label: 
-              fr: Coût total duprojet
+              fr: Coût total du projet
            
             components:
               
@@ -245,7 +247,7 @@ form:
                 name: autreNatureProjet                
                 label:
                   fr: Précisez
-                v-if: val('natureDuProjet') === 'autre'
+                v-if: val('natureProjet.natureDuProjet') === 'autre'
 
               - type: textarea
                 name: explicationNatureProjet
@@ -314,7 +316,7 @@ form:
                   fr: Activités réalisées dans le projet
                 help:
                   fr: Indiquez le nombre d'activités.
-                v-if: val('activitesTalentsRealisees') === 'oui'
+                v-if: val('activitesDeveloppementTalents.activitesTalentsRealisees') === 'oui'
               - type: textarea
                 name: explicationActivitesProjet
                 label:
@@ -345,7 +347,7 @@ form:
                 name: publicsActivites
                 label:
                   fr: À qui ces activités s'adressaient-elles directement ou indirectement?
-                v-if: val('participationPopulationPermise') === 'oui'
+                v-if: val('participationPopulation.participationPopulationPermise') === 'oui'
                 options:
                   grandPublic:
                     fr: Grand
@@ -362,15 +364,7 @@ form:
                 name: autrePublicActivites
                 label:
                   fr: Autres - Précisez
-                v-if: val('reconnaissancePermise') === 'oui'
-
-              - type: number
-                name: nombrePrixRemis
-                label:
-                  fr: Prix remis dans le cadre du projet
-                help:
-                  fr: Indiquez le nombre de prix remis.
-                v-if: val('reconnaissancePermise') === 'oui'
+                v-if: val('participationPopulation.publicsActivites')?.includes('autres')
 
               - type: number
                 name: nombreConsultationsPagesWeb
@@ -378,7 +372,7 @@ form:
                   fr: Consultations des pages Web du projet
                 help:
                   fr: Indiquez le nombre de consultations.
-                v-if: val('participationPopulationPermise') === 'oui'
+                v-if: val('participationPopulation.participationPopulationPermise') === 'oui'
 
           - type: group 
             name: reconnaissancePersonnes
@@ -402,7 +396,7 @@ form:
                 name: publicsReconnaissance
                 label:
                   fr: À qui les activités de reconnaissance et valorisation s'adressaient-elles?
-                v-if: val('reconnaissancePermise') === 'oui'
+                v-if: val('reconnaissancePersonnes.reconnaissancePermise') === 'oui'
                 options:
                   grandPublic:
                     fr: Grand public
@@ -419,7 +413,15 @@ form:
                 name: autrePublicReconnaissance
                 label:
                   fr: Autres- Précisez
-                v-if: val('reconnaissancePermise') === 'oui'
+                v-if: val('reconnaissancePersonnes.publicsReconnaissance')?.includes('autres')
+
+              - type: number
+                name: nombrePrixRemis
+                label:
+                  fr: Prix remis dans le cadre du projet
+                help:
+                  fr: Indiquez le nombre de prix remis.
+                v-if: val('reconnaissancePersonnes.reconnaissancePermise') === 'oui'
 
           - type: group 
             name: partenairesProjet
@@ -443,7 +445,7 @@ form:
                 name: typesPartenaires
                 label:
                   fr: Avec quels types de partenaires avez-vous travaillé?
-                v-if: val('collaborationPartenaires') === 'oui'
+                v-if: val('partenairesProjet.collaborationPartenaires') === 'oui'
                 options:
                   ministeresOrganismes:
                     fr: Ministères et organismes gouvernementaux
@@ -458,14 +460,14 @@ form:
                 name: autreTypePartenaire
                 label:
                   fr: Autres - Précisez
-                v-if: val('collaborationPartenaires') === 'oui'
+                v-if: val('partenairesProjet.typesPartenaires')?.includes('autres')
 
               - type: textarea
                 name: objetCollaboration
                 label:
                   fr: Objet de la collaboration
           
-                v-if: val('collaborationPartenaires') === 'oui'
+                v-if: val('partenairesProjet.collaborationPartenaires') === 'oui'
 
 
           - type: group 
@@ -493,7 +495,7 @@ form:
                   fr: Emplois créés
                 help:
                   fr: Indiquez le nombre d'emplois créés.
-                v-if: val('contributionMainOeuvreQualifiee') === 'oui'
+                v-if: val('mainOeurvreQualifiee.contributionMainOeuvreQualifiee') === 'oui'
 
               - type: number
                 name: nombreEmploisSauvegardes
@@ -501,7 +503,7 @@ form:
                   fr: Emplois sauvegardés
                 help:
                   fr: Indiquez le nombre d'emplois sauvegardés.
-                v-if: val('contributionMainOeuvreQualifiee') === 'oui'
+                v-if: val('mainOeurvreQualifiee.contributionMainOeuvreQualifiee') === 'oui'
 
 
           - type: group 
@@ -526,7 +528,7 @@ form:
                 name: descriptionAutresResultats
                 label:
                   fr: Si oui, lesquels?
-                v-if: val('autresResultatsObtenus') === 'oui'
+                v-if: val('autreResultatsEntreprise.autresResultasObtenus') === 'oui'
 
           - type: group
             name: retombeesQuebec
@@ -550,7 +552,7 @@ form:
                 name: descriptionAutresResultats
                 label:
                   fr: Si oui, lesquels?
-                v-if: val('autresResultatsObtenus') === 'oui'
+                v-if: val('retombeesQuebec.retombeesPrevuesQuebec') === 'oui'
 
 
 
@@ -727,7 +729,7 @@ form:
                   fr: Montant estimé des nouveaux investissements
                 help:
                   fr: Indiquez l'estimation totale pour les trois prochaines années, en dollars canadiens.
-                v-if: val('nouveauxInvestissementsPrevus') === 'oui'
+                v-if: val('investissementsCommercialisation.nouveauxInvestissementsPrevus') === 'oui'
 
               - type: textarea
                 name: commentairesPerspectivesDeveloppement
