@@ -568,8 +568,8 @@ form:
               fr: Cette section est facultative et doit être remplie si elle est pertinente.
                   Indiquez les résultats annuels, par exemple le chiffre d'affaires de l'année précédant
                   le début du projet et celui de l'année de fin du projet.
-            validation:
-              fr: null
+            validations:      
+                  optional: null
 
           - type: group
             name: situationDebutProjet
@@ -687,7 +687,7 @@ form:
             name: informationPerxpectivesDeveloppement
             label: 
               fr: À compléter uniquement à la fin du projet.
-            validation:
+            validations:
               optional: null
 
           - type: group
@@ -754,7 +754,7 @@ form:
             name: consigneAppreciationSuivi
             label: 
               fr: Quel est votre degré d'accord avec les affirmations suivantes?
-            validations:
+            validations:      
               optional: null
 
           - type: radio
@@ -830,7 +830,7 @@ form:
             name: consigneSatisfactionAide
             label: 
               fr: Quel est votre degré de satisfaction à l'égard des éléments suivants?
-            validation:
+            validations:
               optional: null
 
           - type: radio
@@ -945,7 +945,7 @@ form:
             label: 
               fr: Avez-vous des suggestions et/ou des commentaires pour l'amélioration du programme NovaScience?
             validations:      
-                  optional: null
+              optional: null
 
             
 
